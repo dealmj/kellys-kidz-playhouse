@@ -23,8 +23,7 @@ export const SITE = {
     weekend: "Closed Saturday & Sunday",
   },
   social: {
-    instagram: "https://instagram.com/",
-    facebook: "https://facebook.com/",
+    facebook: "https://www.facebook.com/p/Kellys-Kidz-Playhouse-100069400448665/",
   },
 };
 
