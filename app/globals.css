@@ -1,26 +1,64 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fdfcf8;
+  --foreground: #1a2733;
+
+  /* Coastal Rockaway palette — inspired by seaweedrbny.com */
+  --color-ocean: #003a5d;
+  --color-ocean-deep: #002740;
+  --color-seafoam: #57b6b2;
+  --color-seafoam-light: #7adbd4;
+  --color-sandy: #f09f54;
+  --color-sun: #f8df8d;
+  --color-cream: #ebebe8;
+  --color-shell: #fdfcf8;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-ocean: var(--color-ocean);
+  --color-ocean-deep: var(--color-ocean-deep);
+  --color-seafoam: var(--color-seafoam);
+  --color-seafoam-light: var(--color-seafoam-light);
+  --color-sandy: var(--color-sandy);
+  --color-sun: var(--color-sun);
+  --color-cream: var(--color-cream);
+  --color-shell: var(--color-shell);
+  --font-sans: var(--font-nunito);
+  --font-display: var(--font-fraunces);
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-display), Georgia, serif;
+  letter-spacing: -0.01em;
+}
+
+/* Marquee animation for testimonial / accent strips */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 35s linear infinite;
+}
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation-duration: 25s;
+  }
+}
+
+/* Subtle wave divider helper */
+.wave-divider {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 80' preserveAspectRatio='none'><path fill='%23fdfcf8' d='M0,32L60,37.3C120,43,240,53,360,53.3C480,53,600,43,720,37.3C840,32,960,32,1080,37.3C1200,43,1320,53,1380,58.7L1440,64L1440,80L0,80Z'/></svg>");
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
