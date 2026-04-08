@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Container from "@/components/Container";
+import ContactForm from "@/components/ContactForm";
 import { SITE } from "@/lib/site";
 
 export const metadata: Metadata = {
@@ -59,47 +60,7 @@ export default function ContactPage() {
             </dl>
           </div>
 
-          <form
-            className="bg-white rounded-3xl border border-cream shadow-sm p-8 space-y-5"
-            action={`mailto:${SITE.email}`}
-            method="post"
-            encType="text/plain"
-          >
-            <h2 className="font-display text-3xl text-ocean">Send a message</h2>
-            {[
-              { name: "name", label: "Your name", type: "text" },
-              { name: "email", label: "Email", type: "email" },
-              { name: "phone", label: "Phone (optional)", type: "tel" },
-            ].map((f) => (
-              <div key={f.name}>
-                <label className="block text-sm font-bold text-ocean">{f.label}</label>
-                <input
-                  type={f.type}
-                  name={f.name}
-                  className="mt-1.5 w-full rounded-xl border border-cream px-4 py-3 focus:border-seafoam focus:outline-none focus:ring-2 focus:ring-seafoam/30"
-                  required={f.name !== "phone"}
-                />
-              </div>
-            ))}
-            <div>
-              <label className="block text-sm font-bold text-ocean">Message</label>
-              <textarea
-                name="message"
-                rows={5}
-                className="mt-1.5 w-full rounded-xl border border-cream px-4 py-3 focus:border-seafoam focus:outline-none focus:ring-2 focus:ring-seafoam/30"
-                required
-              />
-            </div>
-            <button
-              type="submit"
-              className="w-full rounded-full bg-sandy hover:bg-ocean text-white py-3.5 font-bold shadow transition"
-            >
-              Send Message
-            </button>
-            <p className="text-xs text-ocean/60 text-center">
-              For now this opens your email app. We&apos;ll wire up a real form in step two.
-            </p>
-          </form>
+          <ContactForm />
         </Container>
       </section>
 
